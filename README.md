@@ -104,58 +104,45 @@ The following KPIs are calculated to measure and track business performance:
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([Revenue],dim_date[wn]= selv)
 var revpw =  CALCULATE([Revenue],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 
 "Occupancy WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([Occupancy %],dim_date[wn]= selv)
 var revpw =  CALCULATE([Occupancy %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 
 "ADR WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([ADR],dim_date[wn]= selv)
 var revpw =  CALCULATE([ADR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 
 "Revpar WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([RevPAR],dim_date[wn]= selv)
 var revpw =  CALCULATE([RevPAR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 
 "Realisation WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([Realisation %],dim_date[wn]= selv)
 var revpw =  CALCULATE([Realisation %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 
 "DSRN WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([DSRN],dim_date[wn]= selv)
 var revpw =  CALCULATE([DSRN],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
-
 return
-
 DIVIDE(revcw,revpw,0)-1"
 ```
 </details> 
-
 
 ### 4. **Power BI Dashboard Creation**
    - Designed an interactive Power BI dashboard with various visualizations for the analysis.
