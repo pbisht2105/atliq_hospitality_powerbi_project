@@ -220,3 +220,9 @@ This analysis provides valuable insights into Atliq Hospitality's performance, h
 - **Customer Segmentation and Targeting**: Understanding customer preferences and segmentation can help in developing targeted marketing campaigns and improving customer satisfaction.
 
 By continuously monitoring these key metrics and leveraging data-driven insights, Atliq Hospitality can refine its operations, enhance guest experience, and achieve sustainable growth.
+
+## Author
+
+This project was created and maintained by [Pankaj Singh Bisht](https://github.com/pbisht2105).
+
+You can contact me at: [pbisht2105@gmail.com](mailto:pbisht2105@gmail.com).
