@@ -95,7 +95,7 @@ The following KPIs are calculated to measure and track business performance:
      - `ADR = DIVIDE([Revenue], [Total Bookings], 0)`
      - `Cancellation % = DIVIDE([Total Cancelled Bookings], [Total Bookings])`
      - `Weekly Change % Measures` for various KPIs using DAX `VAR` and `DIVIDE` functions.
-     - <pre style="overflow:auto; max-height: 300px;">
+<pre style="overflow:auto; max-height: 300px;">
 "Revenue WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([Revenue],dim_date[wn]= selv)
