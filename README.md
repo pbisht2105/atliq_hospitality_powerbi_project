@@ -95,7 +95,11 @@ The following KPIs are calculated to measure and track business performance:
      - `ADR = DIVIDE([Revenue], [Total Bookings], 0)`
      - `Cancellation % = DIVIDE([Total Cancelled Bookings], [Total Bookings])`
      - `Weekly Change % Measures` for various KPIs using DAX `VAR` and `DIVIDE` functions.
-<pre style="overflow:auto; max-height: 300px;">
+
+<details>
+  <summary>Click to view DAX Measures</summary>
+
+```text
 "Revenue WoW change % = 
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
 var revcw = CALCULATE([Revenue],dim_date[wn]= selv)
@@ -149,7 +153,8 @@ var revpw =  CALCULATE([DSRN],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
 return
 
 DIVIDE(revcw,revpw,0)-1"
-</pre>
+```
+</details> 
 
 
 ### 4. **Power BI Dashboard Creation**
@@ -186,6 +191,12 @@ DIVIDE(revcw,revpw,0)-1"
 
 ### 5. Dashboard Publishing
    - Published the interactive Power BI report to the Power BI service for easy access and sharing.
+
+## Dashboard
+
+Here is a screenshot of the Power BI dashboard showing various visualizations:
+
+![Power BI Dashboard Screenshot](https://github.com/pbisht2105/atliq_hospitality_powerbi_project/blob/main/Atliq_Hospitality_Dashboad.png)
 
 # Findings and Conclusion
 
