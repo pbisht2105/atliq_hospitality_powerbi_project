@@ -69,11 +69,11 @@ The following KPIs are calculated to measure and track business performance:
    - Description: The percentage of bookings that resulted in actual customer stays (i.e., checked-out bookings).
 
 ### 11. **Weekly Change Percentages** (WoW)
-   - Revenue WoW Change %: Formula to calculate the week-over-week revenue change.
-   - ADR WoW Change %: Formula to calculate the week-over-week change in ADR.
-   - RevPAR WoW Change %: Formula to calculate the week-over-week change in RevPAR.
-   - DSRN WoW Change %: Formula to calculate the week-over-week change in Daily Sellable Room Nights (DSRN).
-   - Realization WoW Change %: Formula to calculate the week-over-week change in Realization Rate.
+   - **Revenue WoW Change %:** Formula to calculate the week-over-week revenue change.
+   - **ADR WoW Change %:** Formula to calculate the week-over-week change in ADR.
+   - **RevPAR WoW Change %:** Formula to calculate the week-over-week change in RevPAR.
+   - **DSRN WoW Change %:** Formula to calculate the week-over-week change in Daily Sellable Room Nights (DSRN).
+   - **Realization WoW Change %:** Formula to calculate the week-over-week change in Realization Rate.
 
 ## Power BI Transformations & Measures
 
@@ -95,6 +95,62 @@ The following KPIs are calculated to measure and track business performance:
      - `ADR = DIVIDE([Revenue], [Total Bookings], 0)`
      - `Cancellation % = DIVIDE([Total Cancelled Bookings], [Total Bookings])`
      - `Weekly Change % Measures` for various KPIs using DAX `VAR` and `DIVIDE` functions.
+     - <pre style="overflow:auto; max-height: 300px;">
+"Revenue WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([Revenue],dim_date[wn]= selv)
+var revpw =  CALCULATE([Revenue],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+
+"Occupancy WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([Occupancy %],dim_date[wn]= selv)
+var revpw =  CALCULATE([Occupancy %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+
+"ADR WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([ADR],dim_date[wn]= selv)
+var revpw =  CALCULATE([ADR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+
+"Revpar WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([RevPAR],dim_date[wn]= selv)
+var revpw =  CALCULATE([RevPAR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+
+"Realisation WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([Realisation %],dim_date[wn]= selv)
+var revpw =  CALCULATE([Realisation %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+
+"DSRN WoW change % = 
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))
+var revcw = CALCULATE([DSRN],dim_date[wn]= selv)
+var revpw =  CALCULATE([DSRN],FILTER(ALL(dim_date),dim_date[wn]= selv-1))
+
+return
+
+DIVIDE(revcw,revpw,0)-1"
+</pre>
+
 
 ### 4. **Power BI Dashboard Creation**
    - Designed an interactive Power BI dashboard with various visualizations for the analysis.
